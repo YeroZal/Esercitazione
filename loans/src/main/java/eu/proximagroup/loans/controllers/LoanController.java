@@ -70,7 +70,7 @@ public class LoanController {
 					request.getRequestURI(), request.getMethod(), HttpStatus.BAD_REQUEST, errorMessages));
 		}
 
-		Optional<Loan> existingLoan = loanService.getByMobileNumber(loan.getMobileNumber());
+		Optional<Loan> existingLoan = loanService.getByMobileNumberAndLoanNumber(loan.getMobileNumber(), loan.getLoanNumber());
 		if (existingLoan.isPresent()) {
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST)
 					.body(new ResponseErrorDto<String>(request.getRequestURI(), request.getMethod(),

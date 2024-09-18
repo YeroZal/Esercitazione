@@ -34,8 +34,8 @@ public class LoanService {
 		return this.loanRepository.save(loan);
 	}
 
-	public Optional<Loan> getByMobileNumber(String mobileNumber) {
-		return this.loanRepository.findByMobileNumber(mobileNumber);
+	public Optional<Loan> getByMobileNumberAndLoanNumber(String mobileNumber, String loanNumber) {
+		return this.loanRepository.findByMobileNumberAndLoanNumber(mobileNumber, loanNumber);
 	}
 
 	public Loan update(Loan loan, Long id) {
