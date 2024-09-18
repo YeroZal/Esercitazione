@@ -71,7 +71,7 @@ public class LoanController {
 		}
 
 		Optional<Loan> existingLoan = loanService.getByMobileNumberAndLoanNumber(loan.getMobileNumber(), loan.getLoanNumber());
-		if (existingLoan.isPresent()) {
+		if (existingLoan.isPresent()) { 
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST)
 					.body(new ResponseErrorDto<String>(request.getRequestURI(), request.getMethod(),
 							HttpStatus.BAD_REQUEST, LoanCostants.MESSAGE_ALREADY_PHONE));
@@ -93,7 +93,6 @@ public class LoanController {
 					request.getMethod(), HttpStatus.BAD_REQUEST, LoanCostants.ERROR_ID_NUMERIC));
 		}
 
-		// Convertiamo l'ID in un Long
 		Long id = Long.parseLong(pathId);
 
 		if (result.hasErrors()) {
