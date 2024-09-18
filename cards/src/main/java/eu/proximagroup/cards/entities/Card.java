@@ -6,6 +6,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.Pattern;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -26,6 +27,7 @@ public class Card extends BaseEntity{
 	private Long id;
 	
 	@Column(name = "mobile_number")
+	@Pattern(regexp = "^(\\+|[0]{2})[0-9]{11,14}$")
 	private String mobileNumber;
 	
 	@Column(name = "card_number")
